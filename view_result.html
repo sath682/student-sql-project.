@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>View Result</title>
+</head>
+<body>
+    <h2>Check Student Result</h2>
+    <form method="POST">
+        Enter Roll No: <input type="text" name="roll" required>
+        <button type="submit">Search</button>
+    </form>
+    
+    {% if student %}
+        <h3>Result:</h3>
+        <p>Name: {{ student[1] }}</p>
+        <p>Roll: {{ student[2] }}</p>
+        <p>Marks: {{ student[3] }}</p>
+    {% elif student == None and request.method == 'POST' %}
+        <p style="color:red;">❌ Student not found!</p>
+    {% endif %}
+    
+    <br>
+    <a href="/">🏠 Back</a>
+</body>
+</html>
